@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="algorithm.css">
+    <style>
+        
+    </style>
+</head>
+<body>
+
+    <!-- MEMORY MANAGEMENT -->
+    <div class="simulation-container">
+        <div class="memory-simulation">
+            <div class="title">
+                Memory Management Simulation
+            </div>
+
+            <!-- FIXED PARTITION -->
+            <div>
+                <h2>Fixed Partition</h2>
+                <p>Choose Allocation Algorithm:</p>
+                <select id="algorithmSelect">
+                <option value="firstFit">First Fit</option>
+                <option value="bestFit">Best Fit</option>
+                <option value="worstFit">Worst Fit</option>
+                </select>
+
+                <p>Enter Partition Sizes (comma-separated)</p>
+                <input type="text" id="partitionSizesInput" placeholder="Enter partition sizes">
+
+                <p>Enter Job Sizes (comma-separated)</p>
+                <input type="text" id="processSizesInput" placeholder="Enter process sizes">
+                <button onclick="allocateJobs()">Allocate</button>
+
+                <div id="output"></div>
+            </div>
+
+            <!-- FIRST-IN-FIRST-OUT -->
+            <div id="container">
+                <h2>FIFO Page Replacement Simulation</h2>
+                <p>Number of Frames: <input type="number" id="numFrames" min="1" value="3"></p>
+                <p>Page Reference String (comma-separated): <input type="text" id="pageString" placeholder="e.g., 1,2,3,4,1,2,5,1,2,3,4,5"></p>
+                <button onclick="simulateFIFO()">Simulate FIFO</button>
+            
+                <div id="output2"></div>
+            </div>
+        </div>
+
+        <!-- PROCESS SIMULATION -->
+        <div class="process-simulation">
+            <div class="title">
+                Processor Scheduling Simulation
+            </div>
+            <div>
+                Input
+            </div>
+            <div>
+                <p>
+                    Algorithm
+                </p>
+                <label for="scheduling-algorithm"></label>
+                <select name="scheduling-algorithm" id="scheduling-algorithm" onchange="toggleTimeQuantumInput()">
+                    <option value="fcfs">First-Come-First-Served (FCFS)</option>
+                    <option value="rr">Round Robin (RR)</option>
+                </select>
+            </div>
+            <div id="time-quantum-input" style="display: none;">
+                <p>
+                    Time Quantum
+                </p>
+                <input id="time-quantum" placeholder="e.g. 2">
+            </div>
+            <div>
+                <p>
+                    Arrival Time
+                </p>
+                <input id="arrival-time-scheduling" class="arrival-time" placeholder="e.g. 0 1 2 3 4">
+            </div>
+            <div>
+                <p>
+                    Burst Time
+                </p>
+                <input id="burst-time-scheduling" class="burst-time" placeholder="e.g. 5 6 7 8 9">
+            </div>
+            <div>
+                <button class="solve-button" onclick="solveScheduling()">
+                    Solve
+                </button>
+            </div>
+            <div>
+                <p>
+                    Output
+                </p>
+                <pre class="result2-output"></pre>
+            </div>
+        </div>
+    </div>
+
+    <script src="process-management.js"></script>
+    <script src="fixed-partition.js"></script> 
+    <script src="first-in-first-out.js"></script>
+</body>
+</html>
